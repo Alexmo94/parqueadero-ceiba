@@ -5,6 +5,7 @@ plugins {
 }
 
 apply plugin: 'io.spring.dependency-management'
+apply plugin: 'jacoco' 
 
 group = 'co.com.ceiba.ADN.estacionamientoCeibaHM'
 version = '0.0.1-SNAPSHOT'
@@ -23,4 +24,14 @@ dependencies {
 	runtimeOnly 'com.h2database:h2'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'org.springframework.security:spring-security-test'
+}
+
+test {
+    jacoco {
+        append = false
+        /*append = true  Si se establece en verdadero y ya existe el archivo de 
+        datos de la ejecución, los datos decobertura se anexan al archivo existente*/
+        
+        destinationFile = file("build/jacoco/jacocoTest.exec")
+    }
 }
