@@ -16,8 +16,8 @@ repositories {
 }
 
 dependencies {
-
-	compileOnly 'org.projectlombok:lombok'
+	compileOnly 'org.projectlombok:lombok:1.18.8'
+	annotationProcessor "org.projectlombok:lombok:1.18.8"
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	//implementation 'org.springframework.boot:spring-boot-starter-oauth2-client'
 	//implementation 'org.springframework.boot:spring-boot-starter-security'
@@ -27,7 +27,6 @@ dependencies {
 	implementation "io.springfox:springfox-swagger2:2.9.2"
 	runtimeOnly 'org.springframework.boot:spring-boot-devtools'
 	implementation 'org.mariadb.jdbc:mariadb-java-client:2.1.2'
-	annotationProcessor "org.projectlombok:lombok" 
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'org.springframework.security:spring-security-test'
 }
@@ -36,7 +35,7 @@ test {
     jacoco {
         append = true
         /*append = true  Si se establece en verdadero y ya existe el archivo de 
-        datos de la ejecución, los datos decobertura se anexan al archivo existente*/
+        datos de la ejecuciÃ³n, los datos decobertura se anexan al archivo existente*/
         
         destinationFile = file("build/jacoco/jacocoTest.exec")
     }
