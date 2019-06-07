@@ -7,7 +7,7 @@ plugins {
 apply plugin: 'io.spring.dependency-management'
 apply plugin: 'jacoco' 
 
-group = 'co.com.ceiba.ADN.estacionamientoCeibaHM'
+group = 'co.com.ceiba.estacionamiento'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '1.8'
 
@@ -33,7 +33,7 @@ dependencies {
 
 test {
     jacoco {
-        append = false
+        append = true
         /*append = true  Si se establece en verdadero y ya existe el archivo de 
         datos de la ejecución, los datos decobertura se anexan al archivo existente*/
         
