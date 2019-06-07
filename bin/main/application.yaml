@@ -1,12 +1,19 @@
 spring:
    datasource:
-      driverClassName: org.mariadb.jdbc.Driver
-      url: jdbc:mariadb://192.168.50.80:3306/estacionamiento
-      username: root
-      password: haroll.mora
-      #password: ENC(UiHd2//oF3r+8juwRut/uoW82iOug37Rd)
-      hikari:
-         poolName: pool
+      datasource:
+      driverClassName: org.h2.Driver
+      url: jdbc:h2:mem:estacionamiento;DB_CLOSE_ON_EXIT=FALSE
+      username: sa
+      password: 
+   jpa:
+      show-sql: true
+      hibernate:
+         ddl-auto: create-drop
+      properties:
+         hibernate.dialect: org.hibernate.dialect.H2Dialect
+      h2:
+         console.enabled: true
+         console.path: /h2
 
 server:
    port: 8083
