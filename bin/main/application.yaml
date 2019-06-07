@@ -1,7 +1,7 @@
 spring:
    datasource:
       driverClassName: org.mariadb.jdbc.Driver
-      url: jdbc:mariadb://localhost:3306/estacionamiento
+      url: jdbc:mariadb://192.168.50.80:3306/estacionamiento
       username: root
       password: haroll.mora
       #password: ENC(UiHd2//oF3r+8juwRut/uoW82iOug37Rd)
