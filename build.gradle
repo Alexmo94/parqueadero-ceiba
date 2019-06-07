@@ -16,8 +16,8 @@ repositories {
 }
 
 dependencies {
-	annotationProcessor "org.projectlombok:lombok:1.18.8"
 	compileOnly 'org.projectlombok:lombok:1.18.8'
+	annotationProcessor "org.projectlombok:lombok:1.18.8"
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	//implementation 'org.springframework.boot:spring-boot-starter-oauth2-client'
 	//implementation 'org.springframework.boot:spring-boot-starter-security'
@@ -35,7 +35,7 @@ test {
     jacoco {
         append = true
         /*append = true  Si se establece en verdadero y ya existe el archivo de 
-        datos de la ejecución, los datos decobertura se anexan al archivo existente*/
+        datos de la ejecuciÃ³n, los datos decobertura se anexan al archivo existente*/
         
         destinationFile = file("build/jacoco/jacocoTest.exec")
     }
