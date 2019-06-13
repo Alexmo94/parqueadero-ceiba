@@ -3,12 +3,12 @@ package co.com.ceiba.estacionamiento.infraestructura.persistencia.mapeo;
 import co.com.ceiba.estacionamiento.dominio.Tipo;
 import co.com.ceiba.estacionamiento.infraestructura.persistencia.entidad.TipoEntity;
 
-public class TipoMapeo {
+public final class TipoMapeo {
 
 	private TipoMapeo() {
 	}
 
-	public final Tipo convertirEntityADominio(TipoEntity entity) {
+	public static Tipo convertirEntityADominio(TipoEntity entity) {
 		Tipo dominio = new Tipo();
 		dominio.setTipoId(entity.getTipoId());
 		dominio.setTipoDesc(entity.getTipoDesc());
@@ -18,7 +18,7 @@ public class TipoMapeo {
 		return dominio;
 	}
 
-	public final TipoEntity convertirEntityADominio(Tipo dominio) {
+	public static TipoEntity convertirDominioAEntity(Tipo dominio) {
 		TipoEntity entity = new TipoEntity();
 		entity.setTipoId(dominio.getTipoId());
 		entity.setTipoDesc(dominio.getTipoDesc());

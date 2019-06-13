@@ -7,7 +7,7 @@ import lombok.Data;
 @Data
 public class Usuario {
 
-	private Long userId;
+	private long userId;
 	private String userNombre;
 	private String userApellido;
 	private Date userFechaNacimiento;

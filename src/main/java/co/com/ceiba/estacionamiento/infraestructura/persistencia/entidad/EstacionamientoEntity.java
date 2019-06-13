@@ -22,7 +22,7 @@ public class EstacionamientoEntity {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long parkingId;
+	private long parkingId;
 
 	@ManyToOne
 	@JoinColumn(name = "vehiculo_id", nullable = false)
@@ -37,6 +37,6 @@ public class EstacionamientoEntity {
 	private Date parkingFechaSalida;
 
 	@Column(name = "parking_total", nullable = true)
-	private Long parkingTotal;
+	private long parkingTotal;
 
 }

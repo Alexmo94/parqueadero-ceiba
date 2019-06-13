@@ -19,27 +19,29 @@ import lombok.Data;
 @Data
 @Entity
 @Table(name = "vehiculo")
+
 public class VehiculoEntity {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long vehiculoId;
-	
+	private long vehiculoId;
+
 	@ManyToOne
 	@JoinColumn(name = "tipo_id", nullable = false)
 	private TipoEntity tipoId;
-	
+
 	@Column(name = "vehiculo_cilindraje", nullable = true)
-	private Long vehiculoCilindraje;
-	
+	private long vehiculoCilindraje;
+
+	@Column(name = "vehiculo_placa", nullable = true)
+	private String vehiculoPlaca;
+
 	@ManyToOne
 	@JoinColumn(name = "user_id", nullable = false)
 	private UsuarioEntity userId;
-	
+
 	@JsonIgnore
 	@OneToMany(mappedBy = "vehiculoId")
 	private Set<EstacionamientoEntity> estacionamientos;
-	
-	
 
 }

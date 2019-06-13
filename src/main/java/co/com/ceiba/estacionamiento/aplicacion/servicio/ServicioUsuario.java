@@ -18,4 +18,8 @@ public class ServicioUsuario {
 		return repository.guardar(usuario);
 	}
 	
+	public Usuario consultarUsuarioPorId(Long userId) {	
+		return repository.consultarUsuarioPorId(userId);
+	}
+	
 }

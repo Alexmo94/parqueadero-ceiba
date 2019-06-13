@@ -6,4 +6,6 @@ public interface UsuarioRepositorio{
 
 	Usuario guardar(Usuario usuario);
 
+	Usuario consultarUsuarioPorId(Long userId);
+
 }

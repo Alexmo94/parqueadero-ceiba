@@ -21,7 +21,7 @@ import lombok.Data;
 public class UsuarioEntity {
 
 	@Id
-	private Long userId;
+	private long userId;
 	
 	@Column(name = "user_nombre", nullable = false)
 	private String userNombre;

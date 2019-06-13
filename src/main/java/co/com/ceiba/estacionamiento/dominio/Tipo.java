@@ -5,10 +5,10 @@ import lombok.Data;
 @Data
 public class Tipo {
 	
-	private Long tipoId;
+	private long tipoId;
 	private String tipoDesc;
-	private Long tipoValorHora;
-	private Long tipoValorDia;
-	private Long tipoTarifaExtra;
+	private long tipoValorHora;
+	private long tipoValorDia;
+	private long tipoTarifaExtra;
 	
 }

@@ -21,19 +21,19 @@ public class TipoEntity {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long tipoId;
+	private long tipoId;
 	
 	@Column(name = "tipo_desc")
 	private String tipoDesc;
 	
 	@Column(name = "tipo_valor_hora")
-	private Long tipoValorHora;
+	private long tipoValorHora;
 	
 	@Column(name = "tipo_valor_dia")
-	private Long tipoValorDia;
+	private long tipoValorDia;
 	
 	@Column(name = "tipo_tarifa_extra")
-	private Long tipoTarifaExtra;
+	private long tipoTarifaExtra;
 	
 	@JsonIgnore
 	@OneToMany(mappedBy ="tipoId")
