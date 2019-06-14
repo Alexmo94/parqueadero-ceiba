@@ -6,6 +6,6 @@ public interface TipoRepositorio {
 
 	Tipo guardar(Tipo tipo);
 
-	Tipo consultById(Long id);
+	Tipo consultById(long id);
 
 }

@@ -76,7 +76,7 @@ public class Registro {
 	public long calcularTotalParking(Calendar fechaIngreso, Calendar fechaSalida, Tipo tipo, Vehiculo vehiculo) {
 		long precio = 0;
 		long tiempoServicio = TimeUnit.MILLISECONDS
-				.toDays(fechaSalida.getTimeInMillis() - fechaIngreso.getTimeInMillis());
+				.toHours(fechaSalida.getTimeInMillis() - fechaIngreso.getTimeInMillis());
 		while (tiempoServicio >= 24) {
 			precio += tipo.getTipoValorDia();
 			tiempoServicio -= 24;

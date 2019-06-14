@@ -8,9 +8,9 @@ import co.com.ceiba.estacionamiento.dominio.repositorio.UsuarioRepositorio;
 @Service
 public class ServicioUsuario {
 
-	private UsuarioRepositorio repository;
+	private final UsuarioRepositorio repository;
 	
-	public ServicioUsuario(UsuarioRepositorio repository) {
+	public ServicioUsuario(final UsuarioRepositorio repository) {
 		this.repository = repository;
 	}
 	

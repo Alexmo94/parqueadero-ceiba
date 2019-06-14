@@ -6,9 +6,9 @@ public class TipoTestDataBuilder {
 	
 	private static final long TIPO_ID  = 1L;
 	private static final String TIPO_DESC = "Moto";
-	private static final long TIPO_VALOR_HORA = 500L;
-	private static final long TIPO_VALOR_DIA = 4000L;
-	private static final long TIPO_TARIFA_EXTRA = 2000L;
+	private static final long TIPO_VALOR_HORA = 500;
+	private static final long TIPO_VALOR_DIA = 4000;
+	private static final long TIPO_TARIFA_EXTRA = 2000;
 
 	private long tipoId;
 	private String tipoDesc;

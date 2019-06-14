@@ -19,9 +19,9 @@ import io.swagger.annotations.Api;
 @Api(tags = "vehiculo")
 public class ControladorVehiculo {
 	
-	private ServicioVehiculo servicio;
+	private final ServicioVehiculo servicio;
 	
-	public ControladorVehiculo(ServicioVehiculo servicio) {
+	public ControladorVehiculo(final ServicioVehiculo servicio) {
 		this.servicio = servicio;
 	}
 

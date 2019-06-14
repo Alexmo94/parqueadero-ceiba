@@ -3,6 +3,8 @@ package co.com.ceiba.estacionamiento.infraestructura.persistencia.repositorio;
 import javax.persistence.EntityNotFoundException;
 import javax.transaction.Transactional;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
 
 import co.com.ceiba.estacionamiento.dominio.Vehiculo;
@@ -14,6 +16,8 @@ import co.com.ceiba.estacionamiento.infraestructura.persistencia.repositorio.jpa
 @Repository
 @Transactional
 public class VehiculoRepositorioImpl implements VehiculoRepositorio {
+	
+	private static final Logger LOG = LoggerFactory.getLogger(VehiculoRepositorioImpl.class);
 
 	public static final String VEHICULO_NO_ENCONTRADO = "El vehiculo no se encuentra registrado";
 
@@ -34,8 +38,8 @@ public class VehiculoRepositorioImpl implements VehiculoRepositorio {
 		try {
 			return VehiculoMapeo.convertirEntityADominio(repository.getOne(vehiculoId));
 		} catch (EntityNotFoundException e) {
+			LOG.error(VEHICULO_NO_ENCONTRADO, e);
 			throw new VehiculoNotFoundException(VEHICULO_NO_ENCONTRADO);
-			//TODO: Log Exception
 		}
 	}
 

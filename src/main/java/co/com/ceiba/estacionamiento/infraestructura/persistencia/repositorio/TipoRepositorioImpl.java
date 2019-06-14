@@ -14,7 +14,7 @@ import co.com.ceiba.estacionamiento.infraestructura.persistencia.repositorio.jpa
 @Repository
 @Transactional
 public class TipoRepositorioImpl implements TipoRepositorio {
-	
+
 	public static final String TIPO_NO_ENCONTRADO = "El vehiculo no se encuentra registrado";
 
 	@Autowired
@@ -23,19 +23,17 @@ public class TipoRepositorioImpl implements TipoRepositorio {
 	public TipoRepositorioImpl(TipoRepositorioJPA repository) {
 		this.repository = repository;
 	}
-	
+
 	@Override
-	public Tipo consultById(Long id) {
-		Tipo tipo = TipoMapeo.convertirEntityADominio(repository.getOne(id));
-		if (tipo != null) {
-			return tipo;
-		}
-		throw new TipoNotFoundException(TIPO_NO_ENCONTRADO);
+	public Tipo consultById(long id) {
+		return TipoMapeo.convertirEntityADominio(
+				repository.findById(id).orElseThrow(() -> new TipoNotFoundException(TIPO_NO_ENCONTRADO)));
+
 	}
 
 	@Override
-	public Tipo guardar (Tipo tipo) {
-		return TipoMapeo.convertirEntityADominio(repository.save(TipoMapeo.convertirDominioAEntity(tipo))); 
+	public Tipo guardar(Tipo tipo) {
+		return TipoMapeo.convertirEntityADominio(repository.save(TipoMapeo.convertirDominioAEntity(tipo)));
 	}
-	
+
 }

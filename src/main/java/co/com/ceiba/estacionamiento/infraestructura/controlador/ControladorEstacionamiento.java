@@ -13,7 +13,6 @@ import co.com.ceiba.estacionamiento.aplicacion.servicio.ServicioEstacionamiento;
 import co.com.ceiba.estacionamiento.dominio.Estacionamiento;
 import co.com.ceiba.estacionamiento.dominio.Vehiculo;
 import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiResponse;
 
 @RestController
 @RequestMapping("/api/estacionamiento")

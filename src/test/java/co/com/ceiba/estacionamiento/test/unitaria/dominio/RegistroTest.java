@@ -6,17 +6,20 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Date;
 
 import org.junit.Before;
 import org.junit.Test;
 
 import co.com.ceiba.estacionamiento.dominio.Registro;
+import co.com.ceiba.estacionamiento.dominio.Tipo;
 import co.com.ceiba.estacionamiento.dominio.Vehiculo;
 import co.com.ceiba.estacionamiento.dominio.excepcion.EstacionamientoNotFoundException;
 import co.com.ceiba.estacionamiento.dominio.excepcion.TipoNotFoundException;
 import co.com.ceiba.estacionamiento.test.databuilder.RegistroTestDataBuilder;
+import co.com.ceiba.estacionamiento.test.databuilder.TipoTestDataBuilder;
 import co.com.ceiba.estacionamiento.test.databuilder.VehiculoTestDataBuilder;
 
 public class RegistroTest {
@@ -26,11 +29,15 @@ public class RegistroTest {
 			+ "'A' Solo pueden ingresar los Domingos y Lunes";
 	private static final String ERROR_CAPACIDAD_MAXIMA = "Acceso denegado: El estacionamiento está en su máxima capacidad";
 	private static final String PLACA_VEHICULO_CON_LETRA_A = "AJE74A";
-	private static final String PLACA_VEHICULO = "VJE74A";
+	private static final String PLACA_VEHICULO = "VJE746";
 	private static final int CAPACIDAD_MAXIMA_CARROS = 20;
 	private static final int CAPACIDAD_MAXIMA_MOTOS = 10;
 	private static final long TIPO_CARRO = 2;
 	private static final long TIPO_MOTO = 1;
+	private static final String PARKING_FECHA_ENTRADA = "14/06/2019 07:00";
+	private static final String PARKING_FECHA_SALIDA = "15/06/2019 11:00";
+
+	public final SimpleDateFormat formato = new SimpleDateFormat("dd/mm/yyyy hh:mm");
 
 	private Registro registro;
 
@@ -162,4 +169,66 @@ public class RegistroTest {
 			assertEquals(e.getMessage(), ERROR_CAPACIDAD_MAXIMA);
 		}
 	}
+
+	@Test
+	public void calcularTipoSalidaEstacionamientoCarro() throws ParseException {
+		Tipo tipo = new TipoTestDataBuilder().conTipoId(TIPO_CARRO).conTipoDesc("Carro").conTipoValorDia(8000)
+				.conTipoValorHora(1000).conTipoTarifaExtra(0).build();
+		Vehiculo vehiculo = new VehiculoTestDataBuilder().conCinlindraje(0).conPlaca(PLACA_VEHICULO).conTipoId(TIPO_CARRO).build();
+		Calendar fechaIngreso = Calendar.getInstance();
+		Calendar fechaSalida = Calendar.getInstance();
+		fechaIngreso.setTime(formato.parse(PARKING_FECHA_ENTRADA));
+		fechaSalida.setTime(formato.parse(PARKING_FECHA_SALIDA));
+
+		long precioTotal = registro.calcularTotalParking(fechaIngreso, fechaSalida, tipo, vehiculo);
+
+		assertEquals(precioTotal, 12000);
+
+	}
+
+	@Test
+	public void calcularTipoSalidaEstacionamientoMotoBajoCilindraje() throws ParseException {
+		Tipo tipo = new TipoTestDataBuilder().build();
+		Vehiculo vehiculo = new VehiculoTestDataBuilder().conCinlindraje(200).build();
+		Calendar fechaIngreso = Calendar.getInstance();
+		Calendar fechaSalida = Calendar.getInstance();
+		fechaIngreso.setTime(formato.parse(PARKING_FECHA_ENTRADA));
+		fechaSalida.setTime(formato.parse(PARKING_FECHA_SALIDA));
+
+		long precioTotal = registro.calcularTotalParking(fechaIngreso, fechaSalida, tipo, vehiculo);
+
+		assertEquals(precioTotal, 6000);
+
+	}
+	
+	@Test
+	public void calcularTipoSalidaEstacionamientoMotoAltoCilindraje() throws ParseException {
+		Tipo tipo = new TipoTestDataBuilder().build();
+		Vehiculo vehiculo = new VehiculoTestDataBuilder().build();
+		Calendar fechaIngreso = Calendar.getInstance();
+		Calendar fechaSalida = Calendar.getInstance();
+		fechaIngreso.setTime(formato.parse(PARKING_FECHA_ENTRADA));
+		fechaSalida.setTime(formato.parse(PARKING_FECHA_SALIDA));
+
+		long precioTotal = registro.calcularTotalParking(fechaIngreso, fechaSalida, tipo, vehiculo);
+
+		assertEquals(precioTotal, 8000);
+
+	}
+	
+	@Test
+	public void calcularTipoSalidaEstacionamientoMotoMasNueveHoras() throws ParseException {
+		Tipo tipo = new TipoTestDataBuilder().build();
+		Vehiculo vehiculo = new VehiculoTestDataBuilder().build();
+		Calendar fechaIngreso = Calendar.getInstance();
+		Calendar fechaSalida = Calendar.getInstance();
+		fechaIngreso.setTime(formato.parse(PARKING_FECHA_ENTRADA));
+		fechaSalida.setTime(formato.parse("15/06/2019 18:00"));
+
+		long precioTotal = registro.calcularTotalParking(fechaIngreso, fechaSalida, tipo, vehiculo);
+
+		assertEquals(precioTotal, 10000);
+
+	}
+	
 }
