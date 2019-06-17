@@ -25,14 +25,12 @@ public class Registro {
 	private static final int CAPACIDAD_MAXIMA_MOTOS_ESTACIONAMIENTO = 10;
 	private static final int CILINDRAJE_MOTO_MINIMO_TARIFA = 500;
 
-	public Estacionamiento validarRegistro(Vehiculo vehiculo) {
+	public Estacionamiento validarRegistro(Vehiculo vehiculo, Calendar fechaIngreso) {
 		Estacionamiento estacionamiento;
-		Calendar fechaIngreso;
 
 		if (!(Objects.equal(vehiculo.getTipoId(), TIPO_CARRO) || Objects.equal(vehiculo.getTipoId(), TIPO_MOTO))) {
 			throw new TipoNotFoundException(ERROR_VEHICULO_INCOMPATIPLE);
 		}
-		fechaIngreso = Calendar.getInstance();
 		if (autorizarIngresoVehiculo(vehiculo, fechaIngreso) || !validarPlacaA(vehiculo.getVehiculoPlaca())) {
 			estacionamiento = new Estacionamiento();
 			estacionamiento.setVehiculoId(vehiculo.getVehiculoId());

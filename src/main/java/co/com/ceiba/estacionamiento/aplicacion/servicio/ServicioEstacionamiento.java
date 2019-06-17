@@ -1,5 +1,7 @@
 package co.com.ceiba.estacionamiento.aplicacion.servicio;
 
+import java.util.Calendar;
+
 import org.springframework.stereotype.Service;
 
 import co.com.ceiba.estacionamiento.dominio.Estacionamiento;
@@ -34,12 +36,13 @@ public class ServicioEstacionamiento {
 	}
 
 	public Estacionamiento registrarEntrada(Vehiculo vehiculo) {
+		Calendar fechaIngreso = Calendar.getInstance();
 		vehiculo = vehiculoRepositorio.consultById(vehiculo.getVehiculoId());
 		estacionamientoRepositorio.validarVehiculoEstacionado(vehiculo.getVehiculoPlaca());
 		long contadorEspacioVehiculos = estacionamientoRepositorio.contarEspaciosEstacionamiento(vehiculo.getTipoId(),
 				TOTAL_PARKING_CERO);
 		servicioRegistro.validarEspacioEstacionamiento(contadorEspacioVehiculos, vehiculo.getTipoId());
-		return this.estacionamientoRepositorio.registrarEntrada(this.servicioRegistro.validarRegistro(vehiculo));
+		return this.estacionamientoRepositorio.registrarEntrada(this.servicioRegistro.validarRegistro(vehiculo, fechaIngreso));
 	}
 
 	public Ticket registrarSalida(String vehiculoPlaca) {

@@ -1,5 +1,7 @@
 package co.com.ceiba.estacionamiento.aplicacion.servicio;
 
+import java.util.Calendar;
+
 import org.springframework.stereotype.Service;
 
 import co.com.ceiba.estacionamiento.dominio.Estacionamiento;
@@ -18,8 +20,8 @@ public class ServicioRegistro {
 		this.registro = registro;
 	}
 
-	public Estacionamiento validarRegistro(Vehiculo vehiculo) {
-		return registro.validarRegistro(vehiculo);
+	public Estacionamiento validarRegistro(Vehiculo vehiculo, Calendar fechaIngreso) {
+		return registro.validarRegistro(vehiculo, fechaIngreso);
 	}
 
 	public void validarEspacioEstacionamiento(long contadorEspacioEstacionamiento, long tipoId) {

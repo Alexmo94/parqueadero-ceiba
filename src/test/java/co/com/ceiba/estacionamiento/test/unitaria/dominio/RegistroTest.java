@@ -109,46 +109,47 @@ public class RegistroTest {
 
 	@Test
 	public void validarRegistroEstacionamientoConVehiculoTipoMoto() {
-
+		Calendar fechaIngreso = Calendar.getInstance();
 		VehiculoTestDataBuilder vehiculoTestDataBuilder = new VehiculoTestDataBuilder().conTipoId(TIPO_MOTO);
 		Vehiculo vehiculo = vehiculoTestDataBuilder.build();
-		assertNotNull(registro.validarRegistro(vehiculo));
+		assertNotNull(registro.validarRegistro(vehiculo, fechaIngreso));
 	}
 
 	@Test
 	public void validarRegistroEstacionamientoConVehiculoTipoCarro() {
-
+		Calendar fechaIngreso = Calendar.getInstance();
 		VehiculoTestDataBuilder vehiculoTestDataBuilder = new VehiculoTestDataBuilder().conTipoId(TIPO_CARRO);
 		Vehiculo vehiculo = vehiculoTestDataBuilder.build();
-		assertNotNull(registro.validarRegistro(vehiculo));
+		assertNotNull(registro.validarRegistro(vehiculo, fechaIngreso));
 	}
 
 	@Test
 	public void validarErrorTipoNoExistente() {
-
+		Calendar fechaIngreso = Calendar.getInstance();
 		VehiculoTestDataBuilder vehiculoTestDataBuilder = new VehiculoTestDataBuilder().conTipoId(3);
 		Vehiculo vehiculo = vehiculoTestDataBuilder.build();
 		try {
-			registro.validarRegistro(vehiculo);
+			registro.validarRegistro(vehiculo, fechaIngreso);
 			fail();
 		} catch (TipoNotFoundException e) {
 			assertEquals(ERROR_VEHICULO_INCOMPATIPLE, e.getMessage());
 		}
 	}
 
-	/*@Test
-	public void validarErrorEstacionamientoAccesoDenegado() {
-
+	@Test
+	public void validarErrorEstacionamientoAccesoDenegado() throws ParseException{
+		Calendar fechaIngreso = Calendar.getInstance();
+		fechaIngreso.setTime(formato.parse("04/06/2019 16:00"));
 		VehiculoTestDataBuilder vehiculoTestDataBuilder = new VehiculoTestDataBuilder()
 				.conPlaca(PLACA_VEHICULO_CON_LETRA_A);
 		Vehiculo vehiculo = vehiculoTestDataBuilder.build();
 		try {
-			registro.validarRegistro(vehiculo);
+			registro.validarRegistro(vehiculo, fechaIngreso);
 			fail();
 		} catch (EstacionamientoNotFoundException e) {
 			assertEquals(ERROR_ACCESO_DENEGADO_VEHICULO, e.getMessage());
 		}
-	}*/
+	}
 
 	@Test
 	public void validarEspacioEstacionamientoCarrosExcepcion() {
@@ -169,7 +170,7 @@ public class RegistroTest {
 			assertEquals(e.getMessage(), ERROR_CAPACIDAD_MAXIMA);
 		}
 	}
-	
+
 	@Test
 	public void validarEspacioEstacionamientoMotosExitoso() {
 		assertFalse(registro.validarEspacioEstacionamiento(1, TIPO_MOTO));
@@ -179,7 +180,8 @@ public class RegistroTest {
 	public void calcularTipoSalidaEstacionamientoCarro() throws ParseException {
 		Tipo tipo = new TipoTestDataBuilder().conTipoId(TIPO_CARRO).conTipoDesc("Carro").conTipoValorDia(8000)
 				.conTipoValorHora(1000).conTipoTarifaExtra(0).build();
-		Vehiculo vehiculo = new VehiculoTestDataBuilder().conCinlindraje(0).conPlaca(PLACA_VEHICULO).conTipoId(TIPO_CARRO).build();
+		Vehiculo vehiculo = new VehiculoTestDataBuilder().conCinlindraje(0).conPlaca(PLACA_VEHICULO)
+				.conTipoId(TIPO_CARRO).build();
 		Calendar fechaIngreso = Calendar.getInstance();
 		Calendar fechaSalida = Calendar.getInstance();
 		fechaIngreso.setTime(formato.parse(PARKING_FECHA_ENTRADA));
@@ -205,7 +207,7 @@ public class RegistroTest {
 		assertEquals(precioTotal, 6000);
 
 	}
-	
+
 	@Test
 	public void calcularTipoSalidaEstacionamientoMotoAltoCilindraje() throws ParseException {
 		Tipo tipo = new TipoTestDataBuilder().build();
@@ -220,7 +222,7 @@ public class RegistroTest {
 		assertEquals(precioTotal, 8000);
 
 	}
-	
+
 	@Test
 	public void calcularTipoSalidaEstacionamientoMotoMasNueveHoras() throws ParseException {
 		Tipo tipo = new TipoTestDataBuilder().build();
@@ -235,5 +237,5 @@ public class RegistroTest {
 		assertEquals(precioTotal, 10000);
 
 	}
-	
+
 }
