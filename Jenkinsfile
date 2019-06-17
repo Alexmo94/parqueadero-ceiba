@@ -26,6 +26,7 @@ pipeline {
 				'Git_Centos', submoduleCfg: [], userRemoteConfigs: [[credentialsId:
 				'GitHub_Alexmo94', url:
 				'https://github.com/Alexmo94/parqueadero-ceiba']]])
+				sh './gradlew clean'
 			}
 		}
 		stage('Compile') {
