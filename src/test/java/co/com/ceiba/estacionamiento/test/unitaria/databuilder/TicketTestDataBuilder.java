@@ -3,9 +3,7 @@ package co.com.ceiba.estacionamiento.test.unitaria.databuilder;
 import co.com.ceiba.estacionamiento.dominio.Estacionamiento;
 import co.com.ceiba.estacionamiento.dominio.Ticket;
 import co.com.ceiba.estacionamiento.dominio.Usuario;
-import lombok.Data;
 
-@Data
 public class TicketTestDataBuilder {
 
 	private static final Usuario USUARIO_DEFAULT = new UsuarioTestDataBuilder().build();
