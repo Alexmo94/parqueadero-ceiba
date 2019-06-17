@@ -6,7 +6,7 @@ plugins {
 }
 
 apply plugin: 'io.spring.dependency-management'
-//apply plugin: 'jacoco' 
+apply plugin: 'jacoco' 
 
 group = 'co.com.ceiba.estacionamiento'
 version = '0.0.1-SNAPSHOT'
