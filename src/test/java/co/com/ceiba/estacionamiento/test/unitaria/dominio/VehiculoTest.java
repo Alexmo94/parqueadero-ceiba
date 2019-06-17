@@ -9,7 +9,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import co.com.ceiba.estacionamiento.dominio.Vehiculo;
-import co.com.ceiba.estacionamiento.test.databuilder.VehiculoTestDataBuilder;
+import co.com.ceiba.estacionamiento.test.unitaria.dominio.databuilder.VehiculoTestDataBuilder;
 
 public class VehiculoTest {
 

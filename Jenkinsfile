@@ -59,6 +59,12 @@ pipeline {
 				sh 'gradle --b ./build.gradle build -x test'
 			}
 		}
+		stage('Jacoco Reports') {
+			steps {
+			  echo "------------>Jacoco Reports<------------"
+			  sh 'gradle --b ./build.gradle jacocoTestReport'
+			}
+		}
 	}
 	post {
 		always {

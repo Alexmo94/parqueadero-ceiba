@@ -32,7 +32,7 @@ public class TipoRepositorioImpl implements TipoRepositorio {
 	}
 
 	@Override
-	public Tipo guardar(Tipo tipo) {
+	public Tipo guardarTipo(Tipo tipo) {
 		return TipoMapeo.convertirEntityADominio(repository.save(TipoMapeo.convertirDominioAEntity(tipo)));
 	}
 

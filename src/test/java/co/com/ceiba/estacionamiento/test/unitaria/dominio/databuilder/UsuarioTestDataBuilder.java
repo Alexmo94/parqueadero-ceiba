@@ -1,8 +1,10 @@
-package co.com.ceiba.estacionamiento.test.databuilder;
+package co.com.ceiba.estacionamiento.test.unitaria.dominio.databuilder;
 
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import co.com.ceiba.estacionamiento.dominio.Usuario;
 
@@ -10,7 +12,7 @@ public class UsuarioTestDataBuilder {
 
 	private static final long USER_ID = 1022398602;
 	private static final String USER_NOMBRE = "Haroll Alexander";
-	private static final String USER_APELLIDO = "Mora Garzón";
+	private static final String USER_APELLIDO = "Mora Garzon";
 	private static final String USER_FECHA_NACIMIENTO = "20/11/1994";
 	private static final String USER_SEXO = "M";
 
@@ -21,13 +23,19 @@ public class UsuarioTestDataBuilder {
 	private String userSexo;
 
 	private SimpleDateFormat formato = new SimpleDateFormat("dd/mm/yyyy");
+	
+	private static final Logger LOG = LoggerFactory.getLogger(UsuarioTestDataBuilder.class);
 
-	public UsuarioTestDataBuilder() throws ParseException {
-		this.userId = USER_ID;
-		this.userNombre = USER_NOMBRE;
-		this.userApellido = USER_APELLIDO;
-		this.userFechaNacimiento = formato.parse(USER_FECHA_NACIMIENTO);
-		this.userSexo = USER_SEXO;
+	public UsuarioTestDataBuilder() {
+		try {
+			this.userId = USER_ID;
+			this.userNombre = USER_NOMBRE;
+			this.userApellido = USER_APELLIDO;
+			this.userFechaNacimiento = formato.parse(USER_FECHA_NACIMIENTO);
+			this.userSexo = USER_SEXO;
+		} catch (Exception e) {
+			LOG.error(e.getMessage(), e);
+		}
 	}
 
 	public UsuarioTestDataBuilder conUserId(Long userId) {

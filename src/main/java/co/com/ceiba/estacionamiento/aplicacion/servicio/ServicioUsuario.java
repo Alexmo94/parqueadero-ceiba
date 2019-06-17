@@ -14,8 +14,8 @@ public class ServicioUsuario {
 		this.repository = repository;
 	}
 	
-	public Usuario guardar(Usuario usuario) {	
-		return repository.guardar(usuario);
+	public Usuario crearUsuario(Usuario usuario) {	
+		return repository.crearUsuario(usuario);
 	}
 	
 	public Usuario consultarUsuarioPorId(Long userId) {	

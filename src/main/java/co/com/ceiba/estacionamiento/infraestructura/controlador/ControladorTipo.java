@@ -24,8 +24,8 @@ public class ControladorTipo {
 	}
 
 	@PostMapping
-	public ResponseEntity<Usuario> post(@RequestBody Tipo tipo) {
-		servicio.guardar(tipo);
+	public ResponseEntity<Usuario> guardarTipo(@RequestBody Tipo tipo) {
+		servicio.guardarTipo(tipo);
 		return new ResponseEntity<>(HttpStatus.CREATED);
 	}
 	

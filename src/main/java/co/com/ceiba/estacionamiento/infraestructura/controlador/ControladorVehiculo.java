@@ -27,7 +27,7 @@ public class ControladorVehiculo {
 
 	@PostMapping
 	public ResponseEntity<Usuario> guardarVehiculo(@RequestBody Vehiculo vehiculo) {
-		servicio.guardar(vehiculo);
+		servicio.guardarVehiculo(vehiculo);
 		return new ResponseEntity<>(HttpStatus.CREATED);
 	}
 	

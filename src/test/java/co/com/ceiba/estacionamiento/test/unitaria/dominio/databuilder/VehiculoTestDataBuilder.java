@@ -1,4 +1,4 @@
-package co.com.ceiba.estacionamiento.test.databuilder;
+package co.com.ceiba.estacionamiento.test.unitaria.dominio.databuilder;
 
 import co.com.ceiba.estacionamiento.dominio.Vehiculo;
 

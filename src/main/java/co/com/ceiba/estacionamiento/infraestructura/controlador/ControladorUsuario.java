@@ -25,8 +25,8 @@ public class ControladorUsuario {
 	}
 
 	@PostMapping
-	public ResponseEntity<Usuario> post(@RequestBody Usuario usuario) {
-		servicio.guardar(usuario);
+	public ResponseEntity<Usuario> crearUsuario(@RequestBody Usuario usuario) {
+		servicio.crearUsuario(usuario);
 		return new ResponseEntity<>(HttpStatus.CREATED);
 	}
 

@@ -6,7 +6,7 @@ import static org.junit.Assert.assertNotNull;
 import org.junit.Test;
 
 import co.com.ceiba.estacionamiento.dominio.Tipo;
-import co.com.ceiba.estacionamiento.test.databuilder.TipoTestDataBuilder;
+import co.com.ceiba.estacionamiento.test.unitaria.dominio.databuilder.TipoTestDataBuilder;
 
 public class TipoTest {
 

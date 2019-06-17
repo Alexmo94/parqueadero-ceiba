@@ -3,10 +3,13 @@ package co.com.ceiba.estacionamiento.aplicacion.servicio;
 import org.springframework.stereotype.Service;
 
 import co.com.ceiba.estacionamiento.dominio.Estacionamiento;
+import co.com.ceiba.estacionamiento.dominio.Ticket;
 import co.com.ceiba.estacionamiento.dominio.Tipo;
+import co.com.ceiba.estacionamiento.dominio.Usuario;
 import co.com.ceiba.estacionamiento.dominio.Vehiculo;
 import co.com.ceiba.estacionamiento.dominio.repositorio.EstacionamientoRepositorio;
 import co.com.ceiba.estacionamiento.dominio.repositorio.TipoRepositorio;
+import co.com.ceiba.estacionamiento.dominio.repositorio.UsuarioRepositorio;
 import co.com.ceiba.estacionamiento.dominio.repositorio.VehiculoRepositorio;
 
 @Service
@@ -18,14 +21,16 @@ public class ServicioEstacionamiento {
 	private final VehiculoRepositorio vehiculoRepositorio;
 	private final ServicioRegistro servicioRegistro;
 	private final TipoRepositorio tipoRepositorio;
+	private final UsuarioRepositorio usuarioRepositorio;
 
 	public ServicioEstacionamiento(final EstacionamientoRepositorio estacionamientoRepositorio,
 			final VehiculoRepositorio vehiculoRepositorio, final ServicioRegistro servicioRegistro,
-			final TipoRepositorio tipoRepositorio) {
+			final TipoRepositorio tipoRepositorio, final UsuarioRepositorio usuarioRepositorio) {
 		this.estacionamientoRepositorio = estacionamientoRepositorio;
 		this.vehiculoRepositorio = vehiculoRepositorio;
 		this.servicioRegistro = servicioRegistro;
 		this.tipoRepositorio = tipoRepositorio;
+		this.usuarioRepositorio = usuarioRepositorio;
 	}
 
 	public Estacionamiento registrarEntrada(Vehiculo vehiculo) {
@@ -37,11 +42,12 @@ public class ServicioEstacionamiento {
 		return this.estacionamientoRepositorio.registrarEntrada(this.servicioRegistro.validarRegistro(vehiculo));
 	}
 
-	public Estacionamiento registrarSalida(String vehiculoPlaca) {
+	public Ticket registrarSalida(String vehiculoPlaca) {
 		Vehiculo vehiculo = vehiculoRepositorio.consultarVehiculoPorPlaca(vehiculoPlaca);
 		Tipo tipo = tipoRepositorio.consultById(vehiculo.getTipoId());
+		Usuario usuario = usuarioRepositorio.consultarUsuarioPorId(vehiculo.getUserId());
 		Estacionamiento estacionamiento = estacionamientoRepositorio
-				.consultarPorVehiculoRegistradoYParkingTotal(vehiculoPlaca);		
-		return servicioRegistro.validarSalidaEstacionamiento(vehiculo, tipo, estacionamiento);
+				.consultarPorVehiculoRegistradoYParkingTotal(vehiculoPlaca);
+		return servicioRegistro.validarSalidaEstacionamiento(vehiculo, tipo, estacionamiento, usuario);
 	}
 }

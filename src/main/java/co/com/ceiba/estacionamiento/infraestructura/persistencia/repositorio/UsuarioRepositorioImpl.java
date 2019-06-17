@@ -23,7 +23,7 @@ public class UsuarioRepositorioImpl implements UsuarioRepositorio {
 	}
 
 	@Override
-	public Usuario guardar(Usuario usuario) {
+	public Usuario crearUsuario(Usuario usuario) {
 		return UsuarioMapeo.convertirEntityADominio(repository.save(UsuarioMapeo.convertirDominioAEntity(usuario)));
 	}
 

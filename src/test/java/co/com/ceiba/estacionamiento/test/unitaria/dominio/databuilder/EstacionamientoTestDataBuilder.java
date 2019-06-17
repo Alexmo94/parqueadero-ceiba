@@ -1,8 +1,10 @@
-package co.com.ceiba.estacionamiento.test.databuilder;
+package co.com.ceiba.estacionamiento.test.unitaria.dominio.databuilder;
 
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import co.com.ceiba.estacionamiento.dominio.Estacionamiento;
 
@@ -14,6 +16,8 @@ public class EstacionamientoTestDataBuilder {
 	private static final String PARKING_FECHA_SALIDA = "10/06/2019 20:00:00";
 	private static final long PARKING_TOTAL = 600;
 
+	private static final Logger LOG = LoggerFactory.getLogger(UsuarioTestDataBuilder.class);
+
 	private Long parkingId;
 	private Long vehiculoId;
 	private Date parkingFechaEntrada;
@@ -22,12 +26,16 @@ public class EstacionamientoTestDataBuilder {
 
 	private SimpleDateFormat formato = new SimpleDateFormat("dd/mm/yyyy hh:mm:ss");
 
-	public EstacionamientoTestDataBuilder() throws ParseException {
-		this.parkingId = PARKING_ID;
-		this.vehiculoId = VEHICULO_ID;
-		this.parkingFechaEntrada = formato.parse(PARKING_FECHA_ENTRADA);
-		this.parkingFechaSalida = formato.parse(PARKING_FECHA_SALIDA);
-		this.parkingTotal = PARKING_TOTAL;
+	public EstacionamientoTestDataBuilder() {
+		try {
+			this.parkingId = PARKING_ID;
+			this.vehiculoId = VEHICULO_ID;
+			this.parkingFechaEntrada = formato.parse(PARKING_FECHA_ENTRADA);
+			this.parkingFechaSalida = formato.parse(PARKING_FECHA_SALIDA);
+			this.parkingTotal = PARKING_TOTAL;
+		} catch (Exception e) {
+			LOG.error(e.getMessage(), e);
+		}
 	}
 
 	public EstacionamientoTestDataBuilder conParkingId(Long parkingId) {

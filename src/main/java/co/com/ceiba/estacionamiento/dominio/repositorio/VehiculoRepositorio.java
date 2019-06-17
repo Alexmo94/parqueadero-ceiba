@@ -4,7 +4,7 @@ import co.com.ceiba.estacionamiento.dominio.Vehiculo;
 
 public interface VehiculoRepositorio {
 
-	Vehiculo guardar(Vehiculo vehiculo);
+	Vehiculo guardarVehiculo(Vehiculo vehiculo);
 
 	Vehiculo consultarVehiculoPorPlaca(String vehiculo);
 

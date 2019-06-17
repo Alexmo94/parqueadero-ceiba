@@ -28,7 +28,7 @@ public class VehiculoRepositorioImpl implements VehiculoRepositorio {
 	}
 
 	@Override
-	public Vehiculo guardar(Vehiculo vehiculo) {
+	public Vehiculo guardarVehiculo(Vehiculo vehiculo) {
 		return VehiculoMapeo.convertirEntityADominio(repository.save(VehiculoMapeo.convertirDominioAEntity(vehiculo)));
 	}
 

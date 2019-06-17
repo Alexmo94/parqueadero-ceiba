@@ -14,8 +14,8 @@ public class ServicioVehiculo {
 		this.repository = repository;
 	}
 
-	public Vehiculo guardar(Vehiculo vehiculo) {		
-		return repository.guardar(vehiculo);
+	public Vehiculo guardarVehiculo(Vehiculo vehiculo) {		
+		return repository.guardarVehiculo(vehiculo);
 	}
 	
 	public Vehiculo consultarPorPlaca(String vehiculoPlaca) {

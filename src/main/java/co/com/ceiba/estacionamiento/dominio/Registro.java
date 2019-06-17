@@ -56,21 +56,27 @@ public class Registro {
 						: Boolean.FALSE);
 	}
 
-	public void validarEspacioEstacionamiento(long contadorEspacioEstacionamiento, long tipoId) {
+	public boolean validarEspacioEstacionamiento(long contadorEspacioEstacionamiento, long tipoId) {
 		boolean estaOcupado = ((tipoId == TIPO_CARRO ? CAPACIDAD_MAXIMA_CARROS_ESTACIONAMIENTO
 				: CAPACIDAD_MAXIMA_MOTOS_ESTACIONAMIENTO) <= contadorEspacioEstacionamiento);
 		if (estaOcupado)
 			throw new EstacionamientoNotFoundException(ERROR_CAPACIDAD_MAXIMA);
+		return estaOcupado;
 	}
 
-	public Estacionamiento validarSalidaEstacionamiento(Vehiculo vehiculo, Tipo tipo, Estacionamiento estacionamiento) {
+	public Ticket validarSalidaEstacionamiento(Vehiculo vehiculo, Tipo tipo, Estacionamiento estacionamiento,
+			Usuario usuario) {
+		Ticket ticket = new Ticket();
 		Calendar fechaingreso;
 		Calendar fechaSalida;
 		fechaingreso = fechaSalida = Calendar.getInstance();
 		fechaingreso.setTime(estacionamiento.getParkingFechaEntrada());
 		estacionamiento.setParkingTotal(calcularTotalParking(fechaingreso, fechaSalida, tipo, vehiculo));
 		estacionamiento.setParkingFechaSalida(fechaSalida.getTime());
-		return estacionamiento;
+		ticket.setEstacionamiento(estacionamiento);
+		ticket.setUsuario(usuario);
+		ticket.setVehiculo(vehiculo);
+		return ticket;
 	}
 
 	public long calcularTotalParking(Calendar fechaIngreso, Calendar fechaSalida, Tipo tipo, Vehiculo vehiculo) {

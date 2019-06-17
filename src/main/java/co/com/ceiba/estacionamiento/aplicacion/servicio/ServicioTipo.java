@@ -14,8 +14,8 @@ public class ServicioTipo {
 		this.repository = repository;
 	}
 	
-	public Tipo guardar(Tipo usuario) {	
-		return repository.guardar(usuario);
+	public Tipo guardarTipo(Tipo usuario) {	
+		return repository.guardarTipo(usuario);
 	}
 
 }

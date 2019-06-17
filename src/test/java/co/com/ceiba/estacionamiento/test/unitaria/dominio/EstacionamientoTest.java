@@ -9,7 +9,7 @@ import java.text.SimpleDateFormat;
 import org.junit.Test;
 
 import co.com.ceiba.estacionamiento.dominio.Estacionamiento;
-import co.com.ceiba.estacionamiento.test.databuilder.EstacionamientoTestDataBuilder;
+import co.com.ceiba.estacionamiento.test.unitaria.dominio.databuilder.EstacionamientoTestDataBuilder;
 
 public class EstacionamientoTest {
 

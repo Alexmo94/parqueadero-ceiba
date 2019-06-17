@@ -10,7 +10,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import co.com.ceiba.estacionamiento.dominio.Usuario;
-import co.com.ceiba.estacionamiento.test.databuilder.UsuarioTestDataBuilder;
+import co.com.ceiba.estacionamiento.test.unitaria.dominio.databuilder.UsuarioTestDataBuilder;
 
 public class UsuarioTest {
 
