@@ -18,9 +18,9 @@ import co.com.ceiba.estacionamiento.dominio.Tipo;
 import co.com.ceiba.estacionamiento.dominio.Vehiculo;
 import co.com.ceiba.estacionamiento.dominio.excepcion.EstacionamientoNotFoundException;
 import co.com.ceiba.estacionamiento.dominio.excepcion.TipoNotFoundException;
-import co.com.ceiba.estacionamiento.test.databuilder.RegistroTestDataBuilder;
-import co.com.ceiba.estacionamiento.test.databuilder.TipoTestDataBuilder;
-import co.com.ceiba.estacionamiento.test.databuilder.VehiculoTestDataBuilder;
+import co.com.ceiba.estacionamiento.test.unitaria.dominio.databuilder.RegistroTestDataBuilder;
+import co.com.ceiba.estacionamiento.test.unitaria.dominio.databuilder.TipoTestDataBuilder;
+import co.com.ceiba.estacionamiento.test.unitaria.dominio.databuilder.VehiculoTestDataBuilder;
 
 public class RegistroTest {
 
@@ -136,7 +136,7 @@ public class RegistroTest {
 		}
 	}
 
-	@Test
+	/*@Test
 	public void validarErrorEstacionamientoAccesoDenegado() {
 
 		VehiculoTestDataBuilder vehiculoTestDataBuilder = new VehiculoTestDataBuilder()
@@ -148,7 +148,7 @@ public class RegistroTest {
 		} catch (EstacionamientoNotFoundException e) {
 			assertEquals(ERROR_ACCESO_DENEGADO_VEHICULO, e.getMessage());
 		}
-	}
+	}*/
 
 	@Test
 	public void validarEspacioEstacionamientoCarrosExcepcion() {
@@ -168,6 +168,11 @@ public class RegistroTest {
 		} catch (EstacionamientoNotFoundException e) {
 			assertEquals(e.getMessage(), ERROR_CAPACIDAD_MAXIMA);
 		}
+	}
+	
+	@Test
+	public void validarEspacioEstacionamientoMotosExitoso() {
+		assertFalse(registro.validarEspacioEstacionamiento(1, TIPO_MOTO));
 	}
 
 	@Test
