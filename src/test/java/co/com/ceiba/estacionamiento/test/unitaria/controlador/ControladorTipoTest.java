@@ -43,7 +43,7 @@ public class ControladorTipoTest {
 	private MockMvc mockMvc;
 
 	@MockBean
-	private TipoRepositorio TipoRepositorio;
+	private TipoRepositorio tipoRepositorio;
 
 	@MockBean
 	private ServicioTipo servicioTipo;
