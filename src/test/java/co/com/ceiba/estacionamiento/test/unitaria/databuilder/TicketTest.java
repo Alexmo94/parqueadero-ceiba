@@ -1,4 +1,4 @@
-package co.com.ceiba.estacionamiento.test.unitaria.dominio;
+package co.com.ceiba.estacionamiento.test.unitaria.databuilder;
 
 import static org.junit.Assert.assertNotNull;
 
@@ -7,9 +7,9 @@ import org.junit.Test;
 import co.com.ceiba.estacionamiento.dominio.Estacionamiento;
 import co.com.ceiba.estacionamiento.dominio.Ticket;
 import co.com.ceiba.estacionamiento.dominio.Usuario;
-import co.com.ceiba.estacionamiento.test.unitaria.dominio.databuilder.EstacionamientoTestDataBuilder;
-import co.com.ceiba.estacionamiento.test.unitaria.dominio.databuilder.TicketTestDataBuilder;
-import co.com.ceiba.estacionamiento.test.unitaria.dominio.databuilder.UsuarioTestDataBuilder;
+import co.com.ceiba.estacionamiento.test.unitaria.dominio.EstacionamientoTestDataBuilder;
+import co.com.ceiba.estacionamiento.test.unitaria.dominio.TicketTestDataBuilder;
+import co.com.ceiba.estacionamiento.test.unitaria.dominio.UsuarioTestDataBuilder;
 
 public class TicketTest {
 

@@ -8,8 +8,8 @@ import org.junit.Test;
 import co.com.ceiba.estacionamiento.dominio.Tipo;
 import co.com.ceiba.estacionamiento.infraestructura.persistencia.entidad.TipoEntity;
 import co.com.ceiba.estacionamiento.infraestructura.persistencia.mapeo.TipoMapeo;
-import co.com.ceiba.estacionamiento.test.unitaria.controlador.databuilder.TipoEntityTestDataBuilder;
-import co.com.ceiba.estacionamiento.test.unitaria.dominio.databuilder.TipoTestDataBuilder;
+import co.com.ceiba.estacionamiento.test.unitaria.databuilder.TipoEntityTestDataBuilder;
+import co.com.ceiba.estacionamiento.test.unitaria.dominio.TipoTestDataBuilder;
 
 public class MapeoTipoTest {
 

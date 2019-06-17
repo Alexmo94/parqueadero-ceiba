@@ -8,8 +8,8 @@ import org.junit.Test;
 import co.com.ceiba.estacionamiento.dominio.Estacionamiento;
 import co.com.ceiba.estacionamiento.infraestructura.persistencia.entidad.EstacionamientoEntity;
 import co.com.ceiba.estacionamiento.infraestructura.persistencia.mapeo.EstacionamientoMapeo;
-import co.com.ceiba.estacionamiento.test.unitaria.controlador.databuilder.EstacionamientoEntityTestDataBuilder;
-import co.com.ceiba.estacionamiento.test.unitaria.dominio.databuilder.EstacionamientoTestDataBuilder;
+import co.com.ceiba.estacionamiento.test.unitaria.databuilder.EstacionamientoEntityTestDataBuilder;
+import co.com.ceiba.estacionamiento.test.unitaria.dominio.EstacionamientoTestDataBuilder;
 
 public class MapeoEstacionamientoTest {
 

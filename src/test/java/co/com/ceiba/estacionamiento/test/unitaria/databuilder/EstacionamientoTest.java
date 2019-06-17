@@ -1,4 +1,4 @@
-package co.com.ceiba.estacionamiento.test.unitaria.dominio;
+package co.com.ceiba.estacionamiento.test.unitaria.databuilder;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -9,7 +9,7 @@ import java.text.SimpleDateFormat;
 import org.junit.Test;
 
 import co.com.ceiba.estacionamiento.dominio.Estacionamiento;
-import co.com.ceiba.estacionamiento.test.unitaria.dominio.databuilder.EstacionamientoTestDataBuilder;
+import co.com.ceiba.estacionamiento.test.unitaria.dominio.EstacionamientoTestDataBuilder;
 
 public class EstacionamientoTest {
 

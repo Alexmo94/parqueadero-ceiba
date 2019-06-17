@@ -24,7 +24,7 @@ import co.com.ceiba.estacionamiento.dominio.Tipo;
 import co.com.ceiba.estacionamiento.dominio.excepcion.TipoNotFoundException;
 import co.com.ceiba.estacionamiento.dominio.repositorio.TipoRepositorio;
 import co.com.ceiba.estacionamiento.infraestructura.controlador.ControladorTipo;
-import co.com.ceiba.estacionamiento.test.unitaria.dominio.databuilder.TipoTestDataBuilder;
+import co.com.ceiba.estacionamiento.test.unitaria.dominio.TipoTestDataBuilder;
 
 @RunWith(SpringRunner.class)
 @WebMvcTest(ControladorTipo.class)

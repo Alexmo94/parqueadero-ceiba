@@ -1,4 +1,4 @@
-package co.com.ceiba.estacionamiento.test.unitaria.dominio;
+package co.com.ceiba.estacionamiento.test.unitaria.databuilder;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -6,7 +6,7 @@ import static org.junit.Assert.assertNotNull;
 import org.junit.Test;
 
 import co.com.ceiba.estacionamiento.dominio.Tipo;
-import co.com.ceiba.estacionamiento.test.unitaria.dominio.databuilder.TipoTestDataBuilder;
+import co.com.ceiba.estacionamiento.test.unitaria.dominio.TipoTestDataBuilder;
 
 public class TipoTest {
 

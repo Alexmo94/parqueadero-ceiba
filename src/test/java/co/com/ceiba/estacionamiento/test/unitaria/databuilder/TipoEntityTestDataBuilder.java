@@ -1,4 +1,4 @@
-package co.com.ceiba.estacionamiento.test.unitaria.controlador.databuilder;
+package co.com.ceiba.estacionamiento.test.unitaria.databuilder;
 
 import co.com.ceiba.estacionamiento.infraestructura.persistencia.entidad.TipoEntity;
 import lombok.Data;

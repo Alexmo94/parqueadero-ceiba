@@ -1,4 +1,4 @@
-package co.com.ceiba.estacionamiento.test.unitaria.controlador.databuilder;
+package co.com.ceiba.estacionamiento.test.unitaria.databuilder;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -8,7 +8,7 @@ import org.slf4j.LoggerFactory;
 
 import co.com.ceiba.estacionamiento.infraestructura.persistencia.entidad.EstacionamientoEntity;
 import co.com.ceiba.estacionamiento.infraestructura.persistencia.entidad.VehiculoEntity;
-import co.com.ceiba.estacionamiento.test.unitaria.dominio.databuilder.UsuarioTestDataBuilder;
+import co.com.ceiba.estacionamiento.test.unitaria.dominio.UsuarioTestDataBuilder;
 import lombok.Data;
 
 @Data
