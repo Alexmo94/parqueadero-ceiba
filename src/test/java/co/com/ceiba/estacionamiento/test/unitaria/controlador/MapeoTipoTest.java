@@ -9,7 +9,7 @@ import co.com.ceiba.estacionamiento.dominio.Tipo;
 import co.com.ceiba.estacionamiento.infraestructura.persistencia.entidad.TipoEntity;
 import co.com.ceiba.estacionamiento.infraestructura.persistencia.mapeo.TipoMapeo;
 import co.com.ceiba.estacionamiento.test.unitaria.databuilder.TipoEntityTestDataBuilder;
-import co.com.ceiba.estacionamiento.test.unitaria.dominio.TipoTestDataBuilder;
+import co.com.ceiba.estacionamiento.test.unitaria.databuilder.TipoTestDataBuilder;
 
 public class MapeoTipoTest {
 

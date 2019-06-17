@@ -1,4 +1,4 @@
-package co.com.ceiba.estacionamiento.test.unitaria.databuilder;
+package co.com.ceiba.estacionamiento.test.unitaria.dominio;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
@@ -18,9 +18,9 @@ import co.com.ceiba.estacionamiento.dominio.Tipo;
 import co.com.ceiba.estacionamiento.dominio.Vehiculo;
 import co.com.ceiba.estacionamiento.dominio.excepcion.EstacionamientoNotFoundException;
 import co.com.ceiba.estacionamiento.dominio.excepcion.TipoNotFoundException;
-import co.com.ceiba.estacionamiento.test.unitaria.dominio.RegistroTestDataBuilder;
-import co.com.ceiba.estacionamiento.test.unitaria.dominio.TipoTestDataBuilder;
-import co.com.ceiba.estacionamiento.test.unitaria.dominio.VehiculoTestDataBuilder;
+import co.com.ceiba.estacionamiento.test.unitaria.databuilder.RegistroTestDataBuilder;
+import co.com.ceiba.estacionamiento.test.unitaria.databuilder.TipoTestDataBuilder;
+import co.com.ceiba.estacionamiento.test.unitaria.databuilder.VehiculoTestDataBuilder;
 
 public class RegistroTest {
 

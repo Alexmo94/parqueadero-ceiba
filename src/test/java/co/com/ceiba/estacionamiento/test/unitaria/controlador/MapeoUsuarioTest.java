@@ -9,7 +9,7 @@ import co.com.ceiba.estacionamiento.dominio.Usuario;
 import co.com.ceiba.estacionamiento.infraestructura.persistencia.entidad.UsuarioEntity;
 import co.com.ceiba.estacionamiento.infraestructura.persistencia.mapeo.UsuarioMapeo;
 import co.com.ceiba.estacionamiento.test.unitaria.databuilder.UsuarioEntityTestDataBuilder;
-import co.com.ceiba.estacionamiento.test.unitaria.dominio.UsuarioTestDataBuilder;
+import co.com.ceiba.estacionamiento.test.unitaria.databuilder.UsuarioTestDataBuilder;
 
 public class MapeoUsuarioTest {
 

@@ -3,9 +3,7 @@ package co.com.ceiba.estacionamiento.test.unitaria.databuilder;
 import co.com.ceiba.estacionamiento.infraestructura.persistencia.entidad.TipoEntity;
 import co.com.ceiba.estacionamiento.infraestructura.persistencia.entidad.UsuarioEntity;
 import co.com.ceiba.estacionamiento.infraestructura.persistencia.entidad.VehiculoEntity;
-import lombok.Data;
 
-@Data
 public class VehiculoEntityTestDataBuilder {
 	private static final long VEHICULO_ID = 1;
 	private static final TipoEntity TIPO_ID = new TipoEntityTestDataBuilder().build();

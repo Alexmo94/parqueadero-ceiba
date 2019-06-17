@@ -1,9 +1,7 @@
 package co.com.ceiba.estacionamiento.test.unitaria.databuilder;
 
 import co.com.ceiba.estacionamiento.infraestructura.persistencia.entidad.TipoEntity;
-import lombok.Data;
 
-@Data
 public class TipoEntityTestDataBuilder {
 	
 	private static final long TIPO_ID  = 1L;

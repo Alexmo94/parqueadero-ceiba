@@ -1,4 +1,4 @@
-package co.com.ceiba.estacionamiento.test.unitaria.dominio;
+package co.com.ceiba.estacionamiento.test.unitaria.databuilder;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;

@@ -7,9 +7,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import co.com.ceiba.estacionamiento.infraestructura.persistencia.entidad.UsuarioEntity;
-import lombok.Data;
 
-@Data
 public class UsuarioEntityTestDataBuilder {
 	private static final long USER_ID = 1022398602;
 	private static final String USER_NOMBRE = "Haroll Alexander";

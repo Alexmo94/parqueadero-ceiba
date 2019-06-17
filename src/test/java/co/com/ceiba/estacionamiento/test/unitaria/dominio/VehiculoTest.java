@@ -1,4 +1,4 @@
-package co.com.ceiba.estacionamiento.test.unitaria.databuilder;
+package co.com.ceiba.estacionamiento.test.unitaria.dominio;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -9,7 +9,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import co.com.ceiba.estacionamiento.dominio.Vehiculo;
-import co.com.ceiba.estacionamiento.test.unitaria.dominio.VehiculoTestDataBuilder;
+import co.com.ceiba.estacionamiento.test.unitaria.databuilder.VehiculoTestDataBuilder;
 
 public class VehiculoTest {
 

@@ -9,7 +9,7 @@ import co.com.ceiba.estacionamiento.dominio.Vehiculo;
 import co.com.ceiba.estacionamiento.infraestructura.persistencia.entidad.VehiculoEntity;
 import co.com.ceiba.estacionamiento.infraestructura.persistencia.mapeo.VehiculoMapeo;
 import co.com.ceiba.estacionamiento.test.unitaria.databuilder.VehiculoEntityTestDataBuilder;
-import co.com.ceiba.estacionamiento.test.unitaria.dominio.VehiculoTestDataBuilder;
+import co.com.ceiba.estacionamiento.test.unitaria.databuilder.VehiculoTestDataBuilder;
 
 public class MapeoVehiculoTest {
 

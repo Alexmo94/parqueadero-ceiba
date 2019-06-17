@@ -8,10 +8,7 @@ import org.slf4j.LoggerFactory;
 
 import co.com.ceiba.estacionamiento.infraestructura.persistencia.entidad.EstacionamientoEntity;
 import co.com.ceiba.estacionamiento.infraestructura.persistencia.entidad.VehiculoEntity;
-import co.com.ceiba.estacionamiento.test.unitaria.dominio.UsuarioTestDataBuilder;
-import lombok.Data;
 
-@Data
 public class EstacionamientoEntityTestDataBuilder {
 
 	private static final long PARKING_ID = 1;

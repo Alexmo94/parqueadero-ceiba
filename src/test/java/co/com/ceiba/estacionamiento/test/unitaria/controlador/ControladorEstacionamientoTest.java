@@ -24,7 +24,7 @@ import co.com.ceiba.estacionamiento.aplicacion.servicio.ServicioEstacionamiento;
 import co.com.ceiba.estacionamiento.dominio.Vehiculo;
 import co.com.ceiba.estacionamiento.dominio.repositorio.VehiculoRepositorio;
 import co.com.ceiba.estacionamiento.infraestructura.controlador.ControladorEstacionamiento;
-import co.com.ceiba.estacionamiento.test.unitaria.dominio.VehiculoTestDataBuilder;
+import co.com.ceiba.estacionamiento.test.unitaria.databuilder.VehiculoTestDataBuilder;
 
 @RunWith(SpringRunner.class)
 @WebMvcTest(ControladorEstacionamiento.class)

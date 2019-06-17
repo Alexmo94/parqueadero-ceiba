@@ -27,7 +27,7 @@ import co.com.ceiba.estacionamiento.dominio.Usuario;
 import co.com.ceiba.estacionamiento.dominio.excepcion.UsuarioNotFoundException;
 import co.com.ceiba.estacionamiento.dominio.repositorio.UsuarioRepositorio;
 import co.com.ceiba.estacionamiento.infraestructura.controlador.ControladorUsuario;
-import co.com.ceiba.estacionamiento.test.unitaria.dominio.UsuarioTestDataBuilder;
+import co.com.ceiba.estacionamiento.test.unitaria.databuilder.UsuarioTestDataBuilder;
 
 @RunWith(SpringRunner.class)
 @WebMvcTest(ControladorUsuario.class)
