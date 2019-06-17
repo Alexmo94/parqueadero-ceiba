@@ -2,10 +2,11 @@ plugins {
 	id 'org.springframework.boot' version '2.1.5.RELEASE'
 	id 'java'
 	id "org.sonarqube" version "2.7"
+	id "jacoco"
 }
 
 apply plugin: 'io.spring.dependency-management'
-apply plugin: 'jacoco' 
+//apply plugin: 'jacoco' 
 
 group = 'co.com.ceiba.estacionamiento'
 version = '0.0.1-SNAPSHOT'
@@ -26,14 +27,16 @@ dependencies {
 	runtimeOnly 'com.h2database:h2'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'org.springframework.security:spring-security-test'
+	testImplementation 'org.mockito:mockito-core:2.+'
+	testImplementation 'junit:junit'
 }
 
-test {
+/*test {
     jacoco {
         append = true
         /*append = true  Si se establece en verdadero y ya existe el archivo de 
-        datos de la ejecución, los datos decobertura se anexan al archivo existente*/
+        datos de la ejecución, los datos decobertura se anexan al archivo existente
         
         destinationFile = file("build/jacoco/jacocoTest.exec")
     }
-}
+}*/
