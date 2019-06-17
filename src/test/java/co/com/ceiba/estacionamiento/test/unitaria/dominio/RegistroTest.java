@@ -27,7 +27,7 @@ public class RegistroTest {
 	private static final String ERROR_VEHICULO_INCOMPATIPLE = "Tipo de Vehiculo Incompatible";
 	private static final String ERROR_ACCESO_DENEGADO_VEHICULO = "Acceso denegado: Los Vehiculos con placas que inicial con "
 			+ "'A' Solo pueden ingresar los Domingos y Lunes";
-	private static final String ERROR_CAPACIDAD_MAXIMA = "Acceso denegado: El estacionamiento está en su máxima capacidad";
+	private static final String ERROR_CAPACIDAD_MAXIMA = "Acceso denegado: El estacionamiento esta en su maxima capacidad";
 	private static final String PLACA_VEHICULO_CON_LETRA_A = "AJE74A";
 	private static final String PLACA_VEHICULO = "VJE746";
 	private static final int CAPACIDAD_MAXIMA_CARROS = 20;
