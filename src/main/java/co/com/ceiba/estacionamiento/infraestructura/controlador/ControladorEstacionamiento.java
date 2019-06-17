@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import co.com.ceiba.estacionamiento.aplicacion.servicio.ServicioEstacionamiento;
 import co.com.ceiba.estacionamiento.dominio.Estacionamiento;
+import co.com.ceiba.estacionamiento.dominio.Ticket;
 import co.com.ceiba.estacionamiento.dominio.Vehiculo;
 import io.swagger.annotations.Api;
 
@@ -24,16 +25,14 @@ public class ControladorEstacionamiento {
 	public ControladorEstacionamiento(final ServicioEstacionamiento servicioEstacionamiento) {
 		this.servicioEstacionamiento = servicioEstacionamiento;
 	}
-	
-	@PostMapping
+
+	@PostMapping("/entrada")
 	public ResponseEntity<Estacionamiento> ingresarVehiculoEstacionamiento(@RequestBody Vehiculo vehiculo) {
-		servicioEstacionamiento.registrarEntrada(vehiculo);
-		return new ResponseEntity<>(HttpStatus.CREATED);
+		return new ResponseEntity<>(servicioEstacionamiento.registrarEntrada(vehiculo), HttpStatus.CREATED);
 	}
 
 	@PatchMapping("/{vehiculoPlaca}")
-	public ResponseEntity<Estacionamiento> extraerVehiculoEstacionamiento(@PathVariable String vehiculoPlaca) {
-		servicioEstacionamiento.registrarSalida(vehiculoPlaca);
-		return new ResponseEntity<>(HttpStatus.CREATED);
+	public ResponseEntity<Ticket> extraerVehiculoEstacionamiento(@PathVariable String vehiculoPlaca) {
+		return new ResponseEntity<>(servicioEstacionamiento.registrarSalida(vehiculoPlaca), HttpStatus.CREATED);
 	}
 }

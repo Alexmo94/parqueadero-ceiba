@@ -13,7 +13,7 @@ import lombok.Data;
 public class UsuarioEntityTestDataBuilder {
 	private static final long USER_ID = 1022398602;
 	private static final String USER_NOMBRE = "Haroll Alexander";
-	private static final String USER_APELLIDO = "Mora Garzón";
+	private static final String USER_APELLIDO = "Mora Garzon";
 	private static final String USER_FECHA_NACIMIENTO = "20/11/1994";
 	private static final String USER_SEXO = "M";
 
