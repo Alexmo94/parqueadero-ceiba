@@ -5,6 +5,11 @@ plugins {
 	id "jacoco"
 }
 
+
+configurations {
+    testCompile.extendsFrom compileOnly
+}
+
 apply plugin: 'io.spring.dependency-management'
 //apply plugin: 'jacoco' 
 
