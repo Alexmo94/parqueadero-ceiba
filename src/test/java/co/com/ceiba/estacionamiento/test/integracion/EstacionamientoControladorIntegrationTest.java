@@ -1,54 +1,52 @@
-package co.com.ceiba.estacionamiento.test.unitaria.controlador;
+package co.com.ceiba.estacionamiento.test.integracion;
 
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.patch;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+
+import java.text.ParseException;
 
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.setup.MockMvcBuilders;
+import org.springframework.web.context.WebApplicationContext;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 
-import co.com.ceiba.estacionamiento.aplicacion.servicio.ServicioEstacionamiento;
+import co.com.ceiba.estacionamiento.Application;
 import co.com.ceiba.estacionamiento.dominio.Vehiculo;
-import co.com.ceiba.estacionamiento.dominio.repositorio.VehiculoRepositorio;
-import co.com.ceiba.estacionamiento.infraestructura.controlador.ControladorEstacionamiento;
 import co.com.ceiba.estacionamiento.test.unitaria.databuilder.VehiculoTestDataBuilder;
 
 @RunWith(SpringRunner.class)
-@WebMvcTest(ControladorEstacionamiento.class)
-public class ControladorEstacionamientoTest {
+@SpringBootTest(classes = Application.class)
+@AutoConfigureMockMvc
+public class EstacionamientoControladorIntegrationTest {
 
-	private static final long VEHICULO_ID = 1;
 	private static final String VEHICULO_PLACA = "RQR45A";
+
+	@Autowired
+	private WebApplicationContext context;
+
+	private MockMvc mockMvc;
 
 	private Vehiculo vehiculo;
 	private ObjectWriter objectWriter;
 
-	@Autowired
-	private MockMvc mockMvc;
-
-	@MockBean
-	private VehiculoRepositorio vehiculoRepositorio;
-
-	@MockBean
-	private ServicioEstacionamiento servicioEstacionamiento;
-
 	@Before
-	public void setUp() throws Exception {
-		VehiculoTestDataBuilder vehiculoTestDataBuilder = new VehiculoTestDataBuilder().conVehiculoId(VEHICULO_ID)
-				.conCinlindraje(0).conPlaca(null).conTipoId(0).conUsuario(0);
+	public void setUp() throws ParseException {
+		mockMvc = MockMvcBuilders.webAppContextSetup(context).build();
+		VehiculoTestDataBuilder vehiculoTestDataBuilder = new VehiculoTestDataBuilder().conVehiculoId(2);
 		vehiculo = vehiculoTestDataBuilder.build();
 		ObjectMapper objectMapper = new ObjectMapper();
 		objectMapper.registerModule(new JavaTimeModule());
@@ -58,17 +56,17 @@ public class ControladorEstacionamientoTest {
 	}
 
 	@Test
-	public void guardarEntradaEstacionamientoTest() throws Exception {
-		String vehiculoJson = objectWriter.writeValueAsString(vehiculo);
+	public void guardarVehiculoSalida() throws Exception {
+		mockMvc.perform(patch("/api/estacionamiento/salida/" + VEHICULO_PLACA)
+				.contentType(MediaType.APPLICATION_JSON_UTF8)).andExpect(status().isCreated());
+	}
 
+	@Test
+	public void guardarVehiculoEntrada() throws Exception {
+		String vehiculoJson = objectWriter.writeValueAsString(vehiculo);
 		mockMvc.perform(
 				post("/api/estacionamiento/entrada").contentType(MediaType.APPLICATION_JSON_UTF8).content(vehiculoJson))
 				.andDo(print()).andExpect(status().isCreated());
 	}
 
-	@Test
-	public void guardarSalidaEstacionamientoTest() throws Exception {
-		mockMvc.perform(patch("/api/estacionamiento/salida/" + VEHICULO_PLACA)
-				.contentType(MediaType.APPLICATION_JSON_UTF8)).andExpect(status().isCreated());
-	}
 }

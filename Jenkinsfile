@@ -43,6 +43,13 @@ pipeline {
 		stage('Integration Tests') {
 			steps {
 				echo "------------>Integration Tests<------------"
+				
+			}
+		}
+		stage('Jacoco Reports') {
+			steps {
+			  echo "------------>Jacoco Reports<------------"
+			  sh 'gradle --b ./build.gradle jacocoTestReport'
 			}
 		}
 		stage('Static Code Analysis') {
@@ -57,12 +64,6 @@ pipeline {
 			steps {
 				echo "------------>Build<------------"
 				sh 'gradle --b ./build.gradle build -x test'
-			}
-		}
-		stage('Jacoco Reports') {
-			steps {
-			  echo "------------>Jacoco Reports<------------"
-			  sh 'gradle --b ./build.gradle jacocoTestReport'
 			}
 		}
 	}

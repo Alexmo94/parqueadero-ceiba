@@ -31,8 +31,8 @@ public class ControladorEstacionamiento {
 		return new ResponseEntity<>(servicioEstacionamiento.registrarEntrada(vehiculo), HttpStatus.CREATED);
 	}
 
-	@PatchMapping("/{vehiculoPlaca}")
-	public ResponseEntity<Ticket> extraerVehiculoEstacionamiento(@PathVariable String vehiculoPlaca) {
+	@PatchMapping("/salida/{vehiculoPlaca}")
+	public ResponseEntity<Ticket> extraerVehiculoEstacionamiento(@PathVariable("vehiculoPlaca") String vehiculoPlaca) {
 		return new ResponseEntity<>(servicioEstacionamiento.registrarSalida(vehiculoPlaca), HttpStatus.CREATED);
 	}
 }

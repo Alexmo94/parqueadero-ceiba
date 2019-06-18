@@ -31,7 +31,7 @@ public class ControladorUsuario {
 	}
 
 	@GetMapping("/{userId}")
-	public ResponseEntity<Usuario> get(@PathVariable("userId") Long userId) {
+	public ResponseEntity<Usuario> consultarUsuario(@PathVariable("userId") Long userId) {
 		return new ResponseEntity<>(servicio.consultarUsuarioPorId(userId), HttpStatus.OK);
 	}
 

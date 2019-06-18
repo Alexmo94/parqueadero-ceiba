@@ -35,6 +35,7 @@ public class Registro {
 			estacionamiento = new Estacionamiento();
 			estacionamiento.setVehiculoId(vehiculo.getVehiculoId());
 			estacionamiento.setParkingFechaEntrada(fechaIngreso.getTime());
+			estacionamiento.setParkingTotal(0);
 			return estacionamiento;
 		}
 		throw new EstacionamientoNotFoundException(ERROR_ACCESO_DENEGADO_VEHICULO);

@@ -2,9 +2,11 @@ package co.com.ceiba.estacionamiento.dominio;
 
 import java.util.Date;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
-@Data
+@Setter
+@Getter
 public class Estacionamiento {
 
 	private long parkingId;

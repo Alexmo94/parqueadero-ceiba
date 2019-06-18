@@ -16,7 +16,7 @@ import co.com.ceiba.estacionamiento.infraestructura.persistencia.repositorio.jpa
 @Repository
 @Transactional
 public class VehiculoRepositorioImpl implements VehiculoRepositorio {
-	
+
 	private static final Logger LOG = LoggerFactory.getLogger(VehiculoRepositorioImpl.class);
 
 	public static final String VEHICULO_NO_ENCONTRADO = "El vehiculo no se encuentra registrado";
@@ -34,7 +34,6 @@ public class VehiculoRepositorioImpl implements VehiculoRepositorio {
 
 	@Override
 	public Vehiculo consultById(Long vehiculoId) {
-
 		try {
 			return VehiculoMapeo.convertirEntityADominio(repository.getOne(vehiculoId));
 		} catch (EntityNotFoundException e) {

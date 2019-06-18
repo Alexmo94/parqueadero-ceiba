@@ -1,8 +1,10 @@
 package co.com.ceiba.estacionamiento.dominio;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
-@Data
+@Setter
+@Getter
 public class Vehiculo {
 
 	private long vehiculoId;
