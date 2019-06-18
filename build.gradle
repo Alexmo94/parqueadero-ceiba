@@ -30,12 +30,12 @@ dependencies {
 	testImplementation 'junit:junit'
 }
 
-/*test {
+test {
     jacoco {
         append = true
         /*append = true  Si se establece en verdadero y ya existe el archivo de 
-        datos de la ejecución, los datos decobertura se anexan al archivo existente
+        datos de la ejecución, los datos decobertura se anexan al archivo existente*/
         
         destinationFile = file("build/jacoco/jacocoTest.exec")
     }
-}*/
+}
